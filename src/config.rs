@@ -871,7 +871,7 @@ impl Config {
         }
     }
 
-    #[cfg(target_os = "linux")]
+    #[cfg(any(target_os = "linux", target_os = "macos"))]
     pub fn ipc_path_for_uid(uid: u32, postfix: &str) -> String {
         let parent = ipc_parent_dir_for_uid(uid, postfix);
         format!("{parent}/ipc{postfix}")
